@@ -3,9 +3,11 @@ const MY_MIN_PING = 60;
 // Setting this above 1.0 will make the boss faster, or under for slower
 const SPECIAL_LENGTH_MULTIPLIER = 1.0;
 
+const Command = require('command');
+
 try{
 	var Ping = require('ping');
-}catch(e) {}
+}catch(e){}
 
 class PingClass{
 	constructor(){
@@ -24,6 +26,13 @@ class BossPingRemover{
 			this.ping = new PingClass();
 		}
 		this.zone = -1;
+		this.enabled = true;
+		this.command = Command(dispatch);
+		
+		this.command.add('bpr', ()=>{
+			this.enabled = !this.enabled;
+			this.command.message("Boss ping remover has been " + (this.enabled?"enabled.":"disabled."));
+		});
 		
 		dispatch.hook('S_LOAD_TOPO', 1, e=>{
 			if(e.zone != this.zone){
@@ -55,6 +64,8 @@ class BossPingRemover{
 		});
 		
 		dispatch.hook('S_ACTION_STAGE', 1, e=>{
+			if(!this.enabled) return;
+			
 			var source = e.source.toString();
 			if(this.mobsInArea[source] !== undefined){
 				var length = 0;
