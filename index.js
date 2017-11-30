@@ -3,7 +3,9 @@ const MY_MIN_PING = 60;
 // Setting this above 1.0 will make the boss faster, or under for slower
 const SPECIAL_LENGTH_MULTIPLIER = 1.0;
 
-var Ping = require('ping');
+try{
+	var Ping = require('ping');
+}catch(e) {}
 
 class PingClass{
 	constructor(){
