@@ -9,3 +9,8 @@ This version is the free version and supports only RKHM/EM, the full version cos
 Note: Users that buys ping-remover will get the full boss-ping-remover for free - HOWEVER buying boss-ping-remover won't make your ping-remover purchase cheaper.
 
 https://docs.google.com/document/d/1Kt5ZQaNNAjXoFZQISNOmKWuQT_8eXYi3KZ3_09c733A
+
+Full version includes the following:
+All spawned pets (HB, thralls etc)
+All kind of mobs/bams/etc even in open-world. For example IoD
+All dungeons not limited to 60-65
