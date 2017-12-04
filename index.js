@@ -68,22 +68,22 @@ class BossPingRemover{
 			
 			var source = e.source.toString();
 			if(this.mobsInArea[source] !== undefined){
+                let skill = e.skill.toString();
 				var length = 0;
 				for(var obj of e.movement){
 					length += obj['duration'];
 				}
 				if(length == 0){
 					try{
-						length = this.cache[this.mobsInArea[source]['zone']][e.skill.toString() + "-" + this.mobsInArea[source]['id']]['length'];
+						length = this.cache[this.mobsInArea[source]['zone']][skill + "-" + this.mobsInArea[source]['id']]['length'][e.stage];
 					}catch(e){
-						//console.log("[BPR]", this.mobsInArea[source], e.skill);
+						//console.log("[BPR]", this.mobsInArea[source], skill);
 						return;
 					}
 				}
 				var newSpeed = ((length * SPECIAL_LENGTH_MULTIPLIER) / (length - this.ping.getPing())) * e.speed;
 				if(newSpeed > e.speed)
 					e.speed = newSpeed;
-
 				return true;
 			}
 		});
