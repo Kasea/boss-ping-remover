@@ -75,7 +75,7 @@ class BossPingRemover{
 				}
 				if(length == 0){
 					try{
-						length = this.cache[this.mobsInArea[source]['zone']][skill + "-" + this.mobsInArea[source]['id']]['length'][e.stage];
+						length = this.cache[this.mobsInArea[source]['zone']][skill + "-" + this.mobsInArea[source]['id']]['length'];
 					}catch(e){
 						//console.log("[BPR]", this.mobsInArea[source], skill);
 						return;
